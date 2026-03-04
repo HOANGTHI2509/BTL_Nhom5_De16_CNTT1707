@@ -1,0 +1,28 @@
+# Python environments
+.venv/
+venv/
+env/
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+
+# Data sets (Tránh đẩy lên để đảm bảo an toàn & tối ưu dung lượng)
+data/raw/
+data/processed/
+*.csv
+*.xlsx
+
+# Models and outputs (Tránh đẩy mô hình nặng lên github)
+outputs/models/*.pkl
+outputs/models/*.joblib
+outputs/figures/
+outputs/reports/
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+.DS_Store
