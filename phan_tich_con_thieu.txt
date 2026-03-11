@@ -1,0 +1,75 @@
+=========================================================
+PHÂN TÍCH PROJECT ĐỀ 16 - AI4I 2020 PREDICTIVE MAINTENANCE
+=========================================================
+
+✅ NHỮNG GÌ ĐÃ CÓ
+---------------------------------------------------------
+- Cấu trúc repo (src, notebooks, configs, outputs)    ✅
+- DataLoader + DataCleaner                            ✅
+- EDA notebook (01_eda.ipynb) với 3+ biểu đồ         ✅
+- Association Rules (Apriori) - association.py        ✅
+- Clustering (K-Means + Silhouette) - clustering.py   ✅
+- Supervised (RF + XGBoost + SMOTE + PR-AUC)          ✅
+- Semi-supervised (Self-Training)                     ✅
+- Forecasting (Ridge + XGBoost + lag features)        ✅
+- run_pipeline.py                                     ✅
+- requirements.txt                                    ✅
+- configs/params.yaml (seed, paths, hyperparams)      ✅
+
+
+❌ NHỮNG GÌ CÒN THIẾU (THEO RUBRIC)
+---------------------------------------------------------
+
+[Tiêu chí H] Repo GitHub (~1.0đ)
+  - README.md ĐÃ XONG (vừa viết)
+
+[Tiêu chí A] Bài toán + Data Dictionary (1.0đ)
+  - README đã có data dictionary ✅
+  - Báo cáo vẫn cần: mô tả nguồn dữ liệu, nêu rủi ro
+    data leakage và mất cân bằng lớp
+
+[Tiêu chí C] Data Mining core (2.0đ)
+  - Clustering: Thiếu Davies-Bouldin Index (DBI)
+    → Hiện chỉ có Silhouette Score
+  - Notebook 03_mining_or_clustering.ipynb còn TRỐNG (65 bytes)
+    → Cần viết notebook gọi association.py + clustering.py
+  - Không có anomaly.py (đề 16 yêu cầu phát hiện cụm bất thường)
+
+[Tiêu chí D] Mô hình hóa (2.0đ)
+  - Thiếu baseline đơn giản: cần thêm Logistic Regression
+    (rubric: ít nhất 2 baseline + 1 mô hình cải tiến)
+  - Notebook 02, 04, 05 còn TRỐNG (65 bytes mỗi file)
+
+[Tiêu chí E] Thiết kế thực nghiệm (1.0đ)
+  - SMOTE được áp dụng đúng (split trước, SMOTE sau) → OK
+  - Learning curve theo % nhãn chưa có BIỂU ĐỒ
+    (chỉ in stdout, không lưu figure)
+
+[Tiêu chí F] Bán giám sát (1.0đ)
+  - Thiếu learning curve theo % nhãn (5%, 10%, 20%) dạng biểu đồ
+  - Chỉ test 20% nhãn, rubric yêu cầu p = 5/10/20
+  - Notebook 04b_semi_supervised.ipynb KHÔNG TỒN TẠI
+
+[Tiêu chí G] Đánh giá, phân tích lỗi & insight (1.5đ)
+  - Cần ít nhất 5 insight "actionable" gắn với kết quả
+  - Thiếu phân tích lỗi theo từng loại lỗi
+    (false positive/negative cho TWF, HDF, PWF, OSF, RNF)
+
+[Hồi quy / Forecasting]
+  - Giả định "UDI ≈ thời gian" cần GIẢI THÍCH RÕ trong notebook
+  - Thiếu residual analysis (phân tích phần dư)
+  - Thiếu phân tích outlier trong kết quả dự báo
+
+
+🎯 ƯU TIÊN LÀM NGAY (dễ kiếm điểm nhất)
+---------------------------------------------------------
+1. [XONG] Viết README.md đầy đủ
+2. Hoàn thiện notebook 03 (Association + Clustering)
+   → gọi hàm từ src/, thêm DBI
+3. Thêm learning curve cho Semi-supervised (5/10/20% nhãn)
+   → lưu figure vào outputs/figures/
+4. Tạo notebook 04b_semi_supervised.ipynb
+5. Thêm Logistic Regression làm baseline trong supervised.py
+6. Hoàn thiện notebook 04 và 05
+7. Thêm residual analysis vào forecasting
+8. Thêm anomaly detection (hoặc giải thích cụm bất thường)
